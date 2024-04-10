@@ -7,23 +7,35 @@ using System.Threading.Tasks;
 namespace Weather_monitoring_station
 {
     /// <summary>
-    /// StatisticsDisplay class implementing IObserver and IDisplay.
+    /// Represents a display showing statistics of temperature.
     /// </summary>
     public class StatisticsDisplay : IObserver, IDisplay
     {
-        private List<double> temperatures;
+        private List<double> temperatures; // Stores the list of temperatures for calculating statistics.
 
+        /// <summary>
+        /// Initializes a new instance of the StatisticsDisplay class.
+        /// </summary>
         public StatisticsDisplay()
         {
             temperatures = new List<double>();
         }
 
+        /// <summary>
+        /// Updates the display with new temperature data.
+        /// </summary>
+        /// <param name="temperature">The new temperature value.</param>
+        /// <param name="humidity">Unused parameter.</param>
+        /// <param name="pressure">Unused parameter.</param>
         public void Update(double temperature, double humidity, double pressure)
         {
             temperatures.Add(temperature);
             Display();
         }
 
+        /// <summary>
+        /// Displays the statistics of temperature.
+        /// </summary>
         public void Display()
         {
             double maxTemp = temperatures.Count > 0 ? temperatures.Max() : 0;
