@@ -25,7 +25,8 @@ namespace Weather_monitoring_station
 
         public void Display()
         {
-            Console.WriteLine($"Current conditions: {temperature}F degrees and {humidity}% humidity");
+            //Console.WriteLine($"Current conditions: {temperature}F degrees and {humidity}% humidity");
+            Console.WriteLine($"\u001b[31mCurrent conditions: {temperature}F degrees and {humidity}% humidity\u001b[0m");
         }
     }
 }
